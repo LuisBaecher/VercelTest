@@ -14,23 +14,20 @@
     {
       "source": "/Build/(.*).wasm",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/wasm"
-        },
-        {
-          "key": "Content-Encoding",
-          "value": "identity"
-        }
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Content-Encoding", "value": "identity" }
       ]
     },
     {
       "source": "/Build/(.*).js",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript"
-        }
+        { "key": "Content-Type", "value": "application/javascript" }
+      ]
+    },
+    {
+      "source": "/Build/(.*).data",
+      "headers": [
+        { "key": "Content-Type", "value": "application/octet-stream" }
       ]
     }
   ]
