@@ -12,15 +12,21 @@
   ],
   "headers": [
     {
-      "source": "/Build/buildNova.wasm",
+      "source": "/Build/(.*).wasm",
       "headers": [
-        { "key": "Content-Type", "value": "application/wasm" }
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
       ]
     },
     {
-      "source": "/Build/*.js",
+      "source": "/Build/(.*).js",
       "headers": [
-        { "key": "Content-Type", "value": "application/javascript" }
+        {
+          "key": "Content-Type",
+          "value": "application/javascript"
+        }
       ]
     }
   ],
