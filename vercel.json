@@ -31,5 +31,17 @@
         { "key": "Content-Type", "value": "text/css" }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "source": "/Build/(.*)",
+      "destination": "/Build/$1",
+      "statusCode": 200
+    }
   ]
 }
