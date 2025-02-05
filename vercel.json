@@ -1,14 +1,9 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "Build/*",
-      "use": "@vercel/static"
-    }
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "Build/*", "use": "@vercel/static" },
+    { "src": "TemplateData/*", "use": "@vercel/static" }
   ],
   "headers": [
     {
@@ -28,6 +23,12 @@
       "source": "/Build/(.*).data",
       "headers": [
         { "key": "Content-Type", "value": "application/octet-stream" }
+      ]
+    },
+    {
+      "source": "/TemplateData/(.*)",
+      "headers": [
+        { "key": "Content-Type", "value": "text/css" }
       ]
     }
   ]
