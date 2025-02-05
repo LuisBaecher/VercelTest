@@ -2,11 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "Build/*",
+      "src": "index.html",
       "use": "@vercel/static"
     },
     {
-      "src": "index.html",
+      "src": "Build/*",
       "use": "@vercel/static"
     }
   ],
@@ -17,6 +17,10 @@
         {
           "key": "Content-Type",
           "value": "application/wasm"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "identity"
         }
       ]
     },
@@ -28,13 +32,6 @@
           "value": "application/javascript"
         }
       ]
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/index.html",
-      "statusCode": 200
     }
   ]
 }
