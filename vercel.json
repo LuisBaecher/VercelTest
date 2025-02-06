@@ -1,47 +1,21 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "Build/*", "use": "@vercel/static" },
-    { "src": "TemplateData/*", "use": "@vercel/static" }
-  ],
   "headers": [
     {
-      "source": "/Build/(.*).wasm",
-      "headers": [
-        { "key": "Content-Type", "value": "application/wasm" },
-        { "key": "Content-Encoding", "value": "identity" }
-      ]
+      "source": "/Build/:wasm",
+      "headers": [{ "key": "Content-Type", "value": "application/wasm" }]
     },
     {
-      "source": "/Build/(.*).js",
-      "headers": [
-        { "key": "Content-Type", "value": "application/javascript" }
-      ]
+      "source": "/Build/:data",
+      "headers": [{ "key": "Content-Type", "value": "application/octet-stream" }]
     },
     {
-      "source": "/Build/(.*).data",
-      "headers": [
-        { "key": "Content-Type", "value": "application/octet-stream" }
-      ]
+      "source": "/Build/:framework.js",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
     },
     {
-      "source": "/TemplateData/(.*)",
-      "headers": [
-        { "key": "Content-Type", "value": "text/css" }
-      ]
+      "source": "/Build/:loader.js",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
     }
   ],
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/index.html",
-      "statusCode": 200
-    },
-    {
-      "source": "/Build/(.*)",
-      "destination": "/Build/$1",
-      "statusCode": 200
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
